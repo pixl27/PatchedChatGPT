@@ -112,11 +112,11 @@ async function initchatGPT(question) {
 
    api = new ChatGPTAPIBrowser({
     email: "one2king1@gmail.com",
-    password: "Maherylepro1"
+    password: ""
   })
 
   globalcheck++
-  await api.init()
+  await api.initSession()
   //const result = await api.sendMessage('Hello World!')
   let user_agent = selectRandom();     
   let header = {
@@ -129,7 +129,7 @@ async function initchatGPT(question) {
   getOrganicData(question,headergoogle, (data) => {
   scrapwebpage(header,data ,async (data2) => {
     const result = await api.sendMessage('Summarize this and tell me ' + question + " :"+ data2 )
-    console.log(result)
+    console.log(result.response)
     recursiveAsyncReadLine()
   });});
 }
@@ -147,7 +147,7 @@ async function asnwer(question) {
   getOrganicData(question,headergoogle, (data) => {
   scrapwebpage(header,data ,async (data2) => {
     const result = await api.sendMessage('Summarize this and tell me ' + question + " :"+ data2 )
-    console.log(result)
+    console.log(result.response)
     recursiveAsyncReadLine()
   });});
 }
