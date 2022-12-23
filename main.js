@@ -110,7 +110,7 @@ async function recursiveAsyncReadLine () {
 async function initchatGPT(question) {
   const {ChatGPTAPIBrowser} = await import('chatgpt')
 
-  const api = new ChatGPTAPIBrowser({
+   api = new ChatGPTAPIBrowser({
     email: "one2king1@gmail.com",
     password: "Maherylepro1"
   })
@@ -130,7 +130,7 @@ async function initchatGPT(question) {
   scrapwebpage(header,data ,async (data2) => {
     const result = await api.sendMessage('Summarize this and tell me ' + question + " :"+ data2 )
     console.log(result)
-   
+    recursiveAsyncReadLine()
   });});
 }
 
@@ -148,12 +148,11 @@ async function asnwer(question) {
   scrapwebpage(header,data ,async (data2) => {
     const result = await api.sendMessage('Summarize this and tell me ' + question + " :"+ data2 )
     console.log(result)
-   
+    recursiveAsyncReadLine()
   });});
 }
 
-//initchatGPT("How to unlock Yusuke Kitagawa in Persona 5 Royal")
-
+recursiveAsyncReadLine(); 
 // getOrganicData("How to unlock Hifumi Togo in Persona 5",headergoogle, (data) => {
 //   scrapwebpage(header,data ,(data2) => {
 //     console.log(data2);
